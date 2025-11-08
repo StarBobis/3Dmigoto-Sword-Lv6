@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Sword.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Sword"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent"
+    >
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.67*" />
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer 
+            Grid.Column="0" 
+            Grid.Row="0"
+            Grid.RowSpan="4"
+            Margin="20" 
+            VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="10" Orientation="Vertical">
+
+                <Expander
+                    HorizontalContentAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    IsExpanded="True">
+                    <Expander.Header>
+                        <StackPanel Margin="10">
+                            <TextBlock 
+                                x:Name="TextBlock_Language"
+                                FontSize="14" 
+                                FontWeight="Bold" 
+                                />
+                        </StackPanel>
+                    </Expander.Header>
+                    <ToggleSwitch 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Stretch" 
+                        x:Name="ToggleSwitch_Chinese"
+                        Toggled="ToggleSwitch_Chinese_Toggled"
+                        />
+                </Expander>
+                
+                <Expander
+                    HorizontalContentAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    IsExpanded="True">
+                    <Expander.Header>
+                        <StackPanel Margin="10">
+                            <TextBlock 
+                                x:Name="TextBlock_Theme"
+                                FontSize="14" 
+                                FontWeight="Bold" 
+                                />
+                        </StackPanel>
+                    </Expander.Header>
+                    <ToggleSwitch 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Stretch" 
+                        x:Name="ToggleSwitch_Theme"
+                        Toggled="ToggleSwitch_Theme_Toggled"
+                        />
+                </Expander>
+
+
+
+
+                <Expander
+                    HorizontalContentAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    IsExpanded="True">
+                    <Expander.Header>
+                        <StackPanel Margin="10">
+                            <TextBlock 
+                                x:Name="TextBlock_WindowOpacitySetting"
+                                FontSize="14" 
+                                FontWeight="Bold" />
+
+                        </StackPanel>
+                    </Expander.Header>
+
+                    <StackPanel Orientation="Vertical">
+                        <Slider
+                            Margin="5"
+                            x:Name="Slider_LuminosityOpacity"
+                            Minimum="0"
+                            Maximum="1"
+                            StepFrequency="0.01"
+                            ValueChanged="Slider_LuminosityOpacity_ValueChanged"
+                            LostFocus="Slider_LuminosityOpacity_LostFocus"
+                            ></Slider>
+                    </StackPanel>
+
+                </Expander>
+                
+                
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer
+            Grid.Column="1"
+            Grid.Row="0"
+            Grid.RowSpan="4"
+            Margin="20" 
+            >
+            <StackPanel Orientation="Vertical">
+
+                <TextBlock 
+                    Margin="5,10,0,10"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    x:Name="TextBlock_About"
+                    VerticalAlignment="Center"/>
+
+
+                <StackPanel Orientation="Horizontal">
+                    <HyperlinkButton
+                        x:Name="HyperlinkButton_SSMTVersion"
+                        Content="SSMT-Release" 
+                        NavigateUri="https://afdian.com/a/NicoMico666" ></HyperlinkButton>
+                </StackPanel>
+
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+
+                <TextBlock 
+                    x:Name="TextBlock_Help"
+                    Margin="5,10,0,10"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    VerticalAlignment="Center">
+                </TextBlock>
+
+                <HyperlinkButton 
+                    x:Name="HyperlinkButton_SSMTDocuments"
+                    NavigateUri="https://www.yuque.com/airde/ssmt3" ></HyperlinkButton>
+
+                <HyperlinkButton 
+                    x:Name="HyperlinkButton_SSMTPluginTheHerta"
+                    NavigateUri="https://github.com/StarBobis/TheHerta3" >
+                </HyperlinkButton>
+
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+
+                <TextBlock 
+                    Margin="5,10,0,10"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    VerticalAlignment="Center">
+                    <Run 
+                        x:Name="Run_SponsorSupport"
+                        Text="赞助支持" />
+                    <Run Text="♥" Foreground="Red"/>
+                </TextBlock>
+
+                <HyperlinkButton 
+                    x:Name="HyperlinkButton_SSMTTechCommunity"
+                    NavigateUri="https://afdian.com/item/ec74ee782b2f11efb5a052540025c377" />
+
+                <HyperlinkButton 
+                    x:Name="HyperlinkButton_AFDianNicoMico"
+                    NavigateUri="https://afdian.com/a/NicoMico666" />
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+
+    </Grid>
+</Page>

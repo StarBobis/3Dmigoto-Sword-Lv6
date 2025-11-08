@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Sword.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Sword"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Closed="Window_Closed"
+    >
+
+
+    <Grid>
+        <!-- 导航栏 -->
+        <NavigationView  
+            Margin="-2"
+            PaneDisplayMode="LeftCompact" 
+            x:Name="nvSample" 
+            ItemInvoked="nvSample_ItemInvoked" 
+            BackRequested="nvSample_BackRequested"
+            IsBackEnabled="{Binding ElementName=contentFrame,Path=CanGoBack}" 
+            IsBackButtonVisible="Visible">
+
+            <Grid>
+                <Frame 
+                    x:Name="contentFrame"
+                    Navigated="contentFrame_Navigated"/>
+            </Grid>
+
+            <NavigationView.MenuItems>
+                <NavigationViewItem 
+                    Visibility="Collapsed"
+                    x:Name="NavigationViewItem_HomePage" 
+                    Icon="Home" 
+                    Content="主页" 
+                    Tag="HomePage" />
+                <NavigationViewItem 
+                    Visibility="Collapsed"
+                    x:Name="NavigationViewItem_AutoReversePage" 
+                    Icon="Permissions" 
+                    Content="自动逆向" 
+                    Tag="AutoReversePage" />
+                <NavigationViewItem 
+                    x:Name="NavigationViewItem_ManuallyReversePage" 
+                    Icon="TouchPointer" 
+                    Content="手动逆向" 
+                    Tag="ManuallyReversePage" />
+                <NavigationViewItem 
+                    x:Name="NavigationViewItem_ProtectPage" 
+                    Icon="ProtectedDocument" 
+                    Content="Mod加密与锁机器码" 
+                    Tag="ProtectPage" />
+            </NavigationView.MenuItems>
+        </NavigationView>
+    </Grid>
+</Window>
