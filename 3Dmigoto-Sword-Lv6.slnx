@@ -6,6 +6,7 @@
   </Configurations>
   <Folder Name="/解决方案项/">
     <File Path="README.md" />
+    <File Path="README_EN.md" />
   </Folder>
   <Project Path="Sword/Sword/Sword.csproj">
     <Platform Solution="*|ARM64" Project="ARM64" />
