@@ -85,7 +85,7 @@ namespace Sword
 
 
             ComboBox_GameTypeName.Items.Clear();
-            string[] GameTypeFolderPathList = Directory.GetDirectories(GlobalConfig.Path_GameTypeConfigsFolder);
+            string[] GameTypeFolderPathList = Directory.GetDirectories(PathManager.Path_GameTypeConfigsFolder);
 
             foreach (string GameTypeFolderPath in GameTypeFolderPathList)
             {
@@ -127,14 +127,14 @@ namespace Sword
             }
 
             JObject runInputJson = new JObject();
-            if (File.Exists(GlobalConfig.Path_RunInputJson))
+            if (File.Exists(PathManager.Path_RunInputJson))
             {
-                string json = File.ReadAllText(GlobalConfig.Path_RunInputJson); // 读取文件内容
+                string json = File.ReadAllText(PathManager.Path_RunInputJson); // 读取文件内容
                 runInputJson = JObject.Parse(json);
             }
             runInputJson["GameName"] = GameName;
             runInputJson["ReverseFilePath"] = ReverseIniFilePath;
-            File.WriteAllText(GlobalConfig.Path_RunInputJson, runInputJson.ToString());
+            File.WriteAllText(PathManager.Path_RunInputJson, runInputJson.ToString());
             LOG.Info("RunReverseCommand::Start");
             bool RunResult = SSMTCommandHelper.RunPluginExeCommand(commandStr, "3Dmigoto-Sword-Lv5.exe", true, true);
             LOG.Info("RunReverseCommand::End");
@@ -153,10 +153,10 @@ namespace Sword
 
         private async void Menu_Reverse_SingleIni_Click(object sender, RoutedEventArgs e)
         {
-            LOG.Initialize(GlobalConfig.Path_LogsFolder);
+            LOG.Initialize(PathManager.Path_LogsFolder);
             try
             {
-                if (!File.Exists(GlobalConfig.Path_SwordLv5Exe))
+                if (!File.Exists(PathManager.Path_SwordLv5Exe))
                 {
                     _ = SSMTMessageHelper.Show("您当前Plugins目录下的3Dmigoto-Sword-Lv5.exe不存在，请联系NicoMico获取后安装到Plugins目录下来使用。");
                     return;
@@ -209,7 +209,7 @@ namespace Sword
                 }
                 else
                 {
-                    _ = SSMTCommandHelper.ShellOpenFile(GlobalConfig.Path_LatestDBMTLogFile);
+                    _ = SSMTCommandHelper.ShellOpenFile(PathManager.Path_LatestDBMTLogFile);
                 }
             }
             catch (Exception ex)
@@ -225,7 +225,7 @@ namespace Sword
         {
             try
             {
-                if (!File.Exists(GlobalConfig.Path_SwordLv5Exe))
+                if (!File.Exists(PathManager.Path_SwordLv5Exe))
                 {
                     _ = SSMTMessageHelper.Show("您当前Plugins目录下的3Dmigoto-Sword-Lv5.exe不存在，请检查是否被杀软错误删除或关闭杀软后重新完整下载本软件使用。");
                     return;
@@ -268,7 +268,7 @@ namespace Sword
                 }
                 else
                 {
-                    _ = SSMTCommandHelper.ShellOpenFile(GlobalConfig.Path_LatestDBMTLogFile);
+                    _ = SSMTCommandHelper.ShellOpenFile(PathManager.Path_LatestDBMTLogFile);
                 }
             }
             catch (Exception ex)
@@ -285,7 +285,7 @@ namespace Sword
         {
             try
             {
-                if (!File.Exists(GlobalConfig.Path_SwordLv5Exe))
+                if (!File.Exists(PathManager.Path_SwordLv5Exe))
                 {
                     _ = SSMTMessageHelper.Show("您当前Plugins目录下的3Dmigoto-Sword-Lv5.exe不存在，请检查是否被杀软错误删除或关闭杀软后重新完整下载本软件使用。");
                     return;
@@ -329,7 +329,7 @@ namespace Sword
                 }
                 else
                 {
-                    _ = SSMTCommandHelper.ShellOpenFile(GlobalConfig.Path_LatestDBMTLogFile);
+                    _ = SSMTCommandHelper.ShellOpenFile(PathManager.Path_LatestDBMTLogFile);
                 }
             }
             catch (Exception ex)
@@ -545,9 +545,9 @@ namespace Sword
 
         private void Menu_ReversedFolder_Click(object sender, RoutedEventArgs e)
         {
-            if (Directory.Exists(GlobalConfig.Path_ReversedFolder))
+            if (Directory.Exists(PathManager.Path_ReversedFolder))
             {
-                SSMTCommandHelper.ShellOpenFolder(GlobalConfig.Path_ReversedFolder);
+                SSMTCommandHelper.ShellOpenFolder(PathManager.Path_ReversedFolder);
             }
             else
             {
@@ -621,19 +621,19 @@ namespace Sword
 
         private void Menu_OpenPluginsFolder_Click(object sender, RoutedEventArgs e)
         {
-            SSMTCommandHelper.ShellOpenFolder(GlobalConfig.Path_AssetsFolder);
+            SSMTCommandHelper.ShellOpenFolder(PathManager.Path_AssetsFolder);
         }
 
         private void Menu_OpenLogsFolder_Click(object sender, RoutedEventArgs e)
         {
-            SSMTCommandHelper.ShellOpenFolder(GlobalConfig.Path_LogsFolder);
+            SSMTCommandHelper.ShellOpenFolder(PathManager.Path_LogsFolder);
         }
 
         private async void Menu_OpenLatestLogFile_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                await SSMTCommandHelper.ShellOpenFile(GlobalConfig.Path_LatestDBMTLogFile);
+                await SSMTCommandHelper.ShellOpenFile(PathManager.Path_LatestDBMTLogFile);
             }
             catch (Exception ex)
             {
@@ -643,12 +643,12 @@ namespace Sword
 
         private void Menu_OpenConfigsFolder_Click(object sender, RoutedEventArgs e)
         {
-            SSMTCommandHelper.ShellOpenFolder(GlobalConfig.Path_ConfigsFolder);
+            SSMTCommandHelper.ShellOpenFolder(PathManager.Path_ConfigsFolder);
         }
 
         private void Menu_GameTypeFolder_Click(object sender, RoutedEventArgs e)
         {
-            SSMTCommandHelper.ShellOpenFolder(GlobalConfig.Path_GameTypeConfigsFolder);
+            SSMTCommandHelper.ShellOpenFolder(PathManager.Path_GameTypeConfigsFolder);
         }
 
 
@@ -692,7 +692,7 @@ namespace Sword
                 ManuallyReversePageConfigJOBJ["ShapeKeyPositionBufferItemList"] = ShapeKeyPositionBufferItemListJarray;
 
 
-                string ManuallyReversePageConfigFilePath = Path.Combine(GlobalConfig.Path_ConfigsFolder, "ManuallyReversePageConfig.json");
+                string ManuallyReversePageConfigFilePath = Path.Combine(PathManager.Path_ConfigsFolder, "ManuallyReversePageConfig.json");
                 DBMTJsonUtils.SaveJObjectToFile(ManuallyReversePageConfigJOBJ, ManuallyReversePageConfigFilePath);
 
                 _ = SSMTMessageHelper.Show("保存成功", "Save Success");
@@ -708,7 +708,7 @@ namespace Sword
 
             try
             {
-                string ManuallyReversePageConfigFilePath = Path.Combine(GlobalConfig.Path_ConfigsFolder, "ManuallyReversePageConfig.json");
+                string ManuallyReversePageConfigFilePath = Path.Combine(PathManager.Path_ConfigsFolder, "ManuallyReversePageConfig.json");
 
                 if (!File.Exists(ManuallyReversePageConfigFilePath))
                 {
@@ -764,18 +764,18 @@ namespace Sword
             try
             {
                 //先检测Reversed目录下
-                if (Directory.Exists(GlobalConfig.Path_ReversedFolder))
+                if (Directory.Exists(PathManager.Path_ReversedFolder))
                 {
 
 
-                    string[] ReversedFileList = Directory.GetFiles(GlobalConfig.Path_ReversedFolder);
+                    string[] ReversedFileList = Directory.GetFiles(PathManager.Path_ReversedFolder);
 
                     if (ReversedFileList.Length != 0)
                     {
                         bool IfDeleteReversedFiles = await SSMTMessageHelper.ShowConfirm("检测到您当前Reversed目录下含有之前的逆向文件，是否清除？", "Your Reversed folder is not empty,do you want to delete all files in it?");
                         if (IfDeleteReversedFiles)
                         {
-                            Directory.GetFiles(GlobalConfig.Path_ReversedFolder).ToList().ForEach(file =>
+                            Directory.GetFiles(PathManager.Path_ReversedFolder).ToList().ForEach(file =>
                             {
                                 try
                                 {
@@ -794,7 +794,7 @@ namespace Sword
 
 
 
-                LOG.Initialize(GlobalConfig.Path_LogsFolder);
+                LOG.Initialize(PathManager.Path_LogsFolder);
 
                 //先搞一个Category，BufFilePath的字典，顺便过滤空行
                 Dictionary<string, string> CategoryBufFilePathDict = new Dictionary<string, string>();
@@ -881,7 +881,7 @@ namespace Sword
                 }
                 LOG.NewLine();
 
-                string ModReverseOutputFolderPath = Path.Combine(GlobalConfig.Path_ReversedFolder);
+                string ModReverseOutputFolderPath = Path.Combine(PathManager.Path_ReversedFolder);
                 if (!Directory.Exists(ModReverseOutputFolderPath))
                 {
                     Directory.CreateDirectory(ModReverseOutputFolderPath);
@@ -951,7 +951,7 @@ namespace Sword
 
 
                 }
-                LOG.SaveFile(GlobalConfig.Path_LogsFolder);
+                LOG.SaveFile(PathManager.Path_LogsFolder);
 
                 SaveReverseOutputFolderPathToConfig(ModReverseOutputFolderPath);
 
@@ -966,7 +966,7 @@ namespace Sword
             }
             catch (Exception ex)
             {
-                LOG.SaveFile(GlobalConfig.Path_LogsFolder);
+                LOG.SaveFile(PathManager.Path_LogsFolder);
                 _ = SSMTMessageHelper.Show(ex.ToString());
             }
 

@@ -53,12 +53,23 @@ namespace Sword
             {
                 Debug.WriteLine("保存配置");
 
-
                 GlobalConfig.WindowLuminosityOpacity = Slider_LuminosityOpacity.Value;
-
                 GlobalConfig.Chinese = ToggleSwitch_Chinese.IsOn;
                 GlobalConfig.Theme = ToggleSwitch_Theme.IsOn;
 
+                // Save new settings
+                if (ComboBox_PostReverseAction.SelectedIndex >=0)
+                {
+                    GlobalConfig.PostReverseAction = ComboBox_PostReverseAction.SelectedIndex;
+                }
+
+                if (ComboBox_TextureConversionFormat.SelectedItem is ComboBoxItem selectedTextureFormat)
+                {
+                    GlobalConfig.TextureConversionFormat = selectedTextureFormat.Content.ToString();
+                }
+
+                GlobalConfig.ConvertOriginalTextures = ToggleSwitch_ConvertOriginalTextures.IsOn;
+                GlobalConfig.ConvertTexturesToOutputFolder = ToggleSwitch_ConvertTexturesToOutputFolder.IsOn;
 
                 GlobalConfig.SaveConfig();
             }
@@ -80,6 +91,23 @@ namespace Sword
             ToggleSwitch_Theme.IsOn = GlobalConfig.Theme;
             ToggleSwitch_Chinese.IsOn = GlobalConfig.Chinese;
 
+            // Read new settings
+            if (GlobalConfig.PostReverseAction >=0 && GlobalConfig.PostReverseAction < ComboBox_PostReverseAction.Items.Count)
+            {
+                ComboBox_PostReverseAction.SelectedIndex = GlobalConfig.PostReverseAction;
+            }
+
+            foreach (ComboBoxItem item in ComboBox_TextureConversionFormat.Items)
+            {
+                if (item.Content.ToString() == GlobalConfig.TextureConversionFormat)
+                {
+                    ComboBox_TextureConversionFormat.SelectedItem = item;
+                    break;
+                }
+            }
+
+            ToggleSwitch_ConvertOriginalTextures.IsOn = GlobalConfig.ConvertOriginalTextures;
+            ToggleSwitch_ConvertTexturesToOutputFolder.IsOn = GlobalConfig.ConvertTexturesToOutputFolder;
 
             ReadOver = true;
         }
@@ -132,8 +160,7 @@ namespace Sword
             if (ReadOver)
             {
                 SaveSettingsToConfig();
-                //Frame.Navigate(typeof(SettingsPage));
-                TranslatePage();
+                Frame.Navigate(typeof(SettingsPage));
             }
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -150,12 +177,17 @@ namespace Sword
 
             if (GlobalConfig.Chinese)
             {
-                
-                TextBlock_Theme.Text = "主题颜色";
+
+                SettingsCard_Language.Header = "语言设置";
+                SettingsCard_Language.Description = "切换软件显示语言";
+
+                SettingsCard_Theme.Header = "主题颜色";
+                SettingsCard_Theme.Description = "切换软件的主题颜色";
+
                 ToggleSwitch_Theme.OnContent = "曜石黑";
                 ToggleSwitch_Theme.OffContent = "晨曦白";
 
-                TextBlock_Language.Text = "语言";
+                TextBlock_BasicSettings.Text = "基础设置";
                 ToggleSwitch_Chinese.OnContent = "简体中文";
                 ToggleSwitch_Chinese.OffContent = "英语";
 
@@ -170,24 +202,52 @@ namespace Sword
                 HyperlinkButton_SSMTTechCommunity.Content = "SSMT技术社群";
                 HyperlinkButton_AFDianNicoMico.Content = "爱发电:NicoMico";
 
-              
 
-                TextBlock_WindowOpacitySetting.Text = "窗口透明度调整";
-                Slider_LuminosityOpacity.Header = "透光度";
+                SettingsCard_LuminosityOpacity.Header = "透光度";
+                SettingsCard_LuminosityOpacity.Description = "设置软件窗口的透光度";
 
-                
+                // New translations
+                TextBlock_BehaviourSettings.Text = "行为设置";
 
+                SettingsCard_TextureConversionFormat.Header = "贴图转换格式";
+                SettingsCard_TextureConversionFormat.Description = "选择当前逆向后的贴图转换格式";
+
+                ComboBoxItem_png.Content = "png";
+                ComboBoxItem_jpg.Content = "jpg";
+                ComboBoxItem_tga.Content = "bmp";
+
+                SettingsCard_PostReverseAction.Header = "逆向完成后操作";
+                SettingsCard_PostReverseAction.Description = "选择逆向完成后的操作";
+
+                ComboBoxItem_OpenFolder.Content = "打开逆向好的文件夹";
+                ComboBoxItem_ShowDialog.Content = "显示逆向成功对话框";
+
+                SettingsCard_ConvertOriginalTextures.Header = "转换原始贴图";
+                SettingsCard_ConvertOriginalTextures.Description = "控制是否转换原始Mod里的贴图文件";
+                ToggleSwitch_ConvertOriginalTextures.OnContent = "启用";
+                ToggleSwitch_ConvertOriginalTextures.OffContent = "禁用";
+
+                SettingsCard_ConvertTexturesToOutputFolder.Header = "转换贴图到输出文件夹";
+                SettingsCard_ConvertTexturesToOutputFolder.Description = "控制是否转换贴图到逆向输出文件夹";
+                ToggleSwitch_ConvertTexturesToOutputFolder.OnContent = "启用";
+                ToggleSwitch_ConvertTexturesToOutputFolder.OffContent = "禁用";
             }
             else
             {
-                
+                SettingsCard_Language.Header = "Language Settings";
+                SettingsCard_Language.Description = "Switch the display language of the software";
 
-                TextBlock_Theme.Text = "Theme Color";
+                SettingsCard_Theme.Header = "Theme Color";
+                SettingsCard_Theme.Description = "Switch the theme color of the software";
+
+                SettingsCard_LuminosityOpacity.Header = "Window Opacity";
+                SettingsCard_LuminosityOpacity.Description = "Set the opacity of the software window";
+
 
                 ToggleSwitch_Theme.OnContent = "Dark";
                 ToggleSwitch_Theme.OffContent = "Light";
 
-                TextBlock_Language.Text = "Language";
+                TextBlock_BasicSettings.Text = "Basic Settings";
                 ToggleSwitch_Chinese.OnContent = "Chinese(zh-CN)";
                 ToggleSwitch_Chinese.OffContent = "English(en-US)";
 
@@ -204,14 +264,32 @@ namespace Sword
                 HyperlinkButton_SSMTTechCommunity.Content = "SSMT Tech Community";
                 HyperlinkButton_AFDianNicoMico.Content = "afdian: NicoMico";
 
-        
+                // New translations
+                TextBlock_BehaviourSettings.Text = "Behavior Settings";
 
-                TextBlock_WindowOpacitySetting.Text = "Window Opacity";
-                Slider_LuminosityOpacity.Header = "Luminosity Opacity";
+                SettingsCard_TextureConversionFormat.Header = "Texture Conversion Format";
+                SettingsCard_TextureConversionFormat.Description = "Select the texture conversion format";
 
+                ComboBoxItem_png.Content = "png";
+                ComboBoxItem_jpg.Content = "jpg";
+                ComboBoxItem_tga.Content = "bmp";
 
+                SettingsCard_PostReverseAction.Header = "Post Reverse Action";
+                SettingsCard_PostReverseAction.Description = "Select the action after reverse operation";
+
+                ComboBoxItem_OpenFolder.Content = "Open Reversed Folder";
+                ComboBoxItem_ShowDialog.Content = "Show Success Dialog";
+
+                SettingsCard_ConvertOriginalTextures.Header = "Convert Original Textures";
+                SettingsCard_ConvertOriginalTextures.Description = "Control whether to convert original textures in the mod";
+                ToggleSwitch_ConvertOriginalTextures.OnContent = "Enable";
+                ToggleSwitch_ConvertOriginalTextures.OffContent = "Disable";
+
+                SettingsCard_ConvertTexturesToOutputFolder.Header = "Convert Textures to Output Folder";
+                SettingsCard_ConvertTexturesToOutputFolder.Description = "Control whether to convert textures to the reverse output folder";
+                ToggleSwitch_ConvertTexturesToOutputFolder.OnContent = "Enable";
+                ToggleSwitch_ConvertTexturesToOutputFolder.OffContent = "Disable";
             }
-
         }
 
 
@@ -234,7 +312,36 @@ namespace Sword
 
         }
 
+        private void ComboBox_TextureConversionFormat_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ReadOver)
+            {
+                SaveSettingsToConfig();
+            }
+        }
 
+        private void ComboBox_PostReverseAction_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ReadOver)
+            {
+                SaveSettingsToConfig();
+            }
+        }
 
+        private void ToggleSwitch_ConvertOriginalTextures_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (ReadOver)
+            {
+                SaveSettingsToConfig();
+            }
+        }
+
+        private void ToggleSwitch_ConvertTexturesToOutputFolder_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (ReadOver)
+            {
+                SaveSettingsToConfig();
+            }
+        }
     }
 }

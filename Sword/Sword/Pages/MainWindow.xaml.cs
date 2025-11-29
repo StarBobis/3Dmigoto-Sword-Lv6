@@ -80,14 +80,14 @@ namespace Sword
 
             _controller.LuminosityOpacity = (float)GlobalConfig.WindowLuminosityOpacity;
 
-            if (!Directory.Exists(GlobalConfig.Path_ConfigsFolder))
+            if (!Directory.Exists(PathManager.Path_ConfigsFolder))
             {
-                Directory.CreateDirectory(GlobalConfig.Path_ConfigsFolder);
+                Directory.CreateDirectory(PathManager.Path_ConfigsFolder);
             }
 
-            if (!Directory.Exists(GlobalConfig.Path_LogsFolder))
+            if (!Directory.Exists(PathManager.Path_LogsFolder))
             {
-                Directory.CreateDirectory(GlobalConfig.Path_LogsFolder);
+                Directory.CreateDirectory(PathManager.Path_LogsFolder);
             }
 
             
@@ -126,6 +126,20 @@ namespace Sword
             GlobalConfig.WindowHeight = WindowHeight;
 
             GlobalConfig.SaveConfig();
+
+            //不释放资源就会出现那个0x0000005的内存访问异常
+            //但是没有任何文档对此有所说明
+            //可恶的WinUI3
+            try
+            {
+                _controller?.RemoveAllSystemBackdropTargets();
+                _controller?.Dispose();
+                _controller = null;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Backdrop cleanup failed: {ex}");
+            }
         }
 
 

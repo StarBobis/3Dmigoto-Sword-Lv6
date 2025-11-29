@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="Transparent"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     >
 
 
@@ -29,7 +30,7 @@
             Grid.RowSpan="4"
             Margin="20" 
             VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="10" Orientation="Vertical">
+            <StackPanel Orientation="Vertical">
 
                 <Expander
                     HorizontalContentAlignment="Stretch"
@@ -38,73 +39,127 @@
                     <Expander.Header>
                         <StackPanel Margin="10">
                             <TextBlock 
-                                x:Name="TextBlock_Language"
+                                x:Name="TextBlock_BasicSettings"
                                 FontSize="14" 
                                 FontWeight="Bold" 
                                 />
-                        </StackPanel>
-                    </Expander.Header>
-                    <ToggleSwitch 
-                        VerticalAlignment="Center" 
-                        HorizontalAlignment="Stretch" 
-                        x:Name="ToggleSwitch_Chinese"
-                        Toggled="ToggleSwitch_Chinese_Toggled"
-                        />
-                </Expander>
-                
-                <Expander
-                    HorizontalContentAlignment="Stretch"
-                    HorizontalAlignment="Stretch"
-                    IsExpanded="True">
-                    <Expander.Header>
-                        <StackPanel Margin="10">
-                            <TextBlock 
-                                x:Name="TextBlock_Theme"
-                                FontSize="14" 
-                                FontWeight="Bold" 
-                                />
-                        </StackPanel>
-                    </Expander.Header>
-                    <ToggleSwitch 
-                        VerticalAlignment="Center" 
-                        HorizontalAlignment="Stretch" 
-                        x:Name="ToggleSwitch_Theme"
-                        Toggled="ToggleSwitch_Theme_Toggled"
-                        />
-                </Expander>
-
-
-
-
-                <Expander
-                    HorizontalContentAlignment="Stretch"
-                    HorizontalAlignment="Stretch"
-                    IsExpanded="True">
-                    <Expander.Header>
-                        <StackPanel Margin="10">
-                            <TextBlock 
-                                x:Name="TextBlock_WindowOpacitySetting"
-                                FontSize="14" 
-                                FontWeight="Bold" />
-
                         </StackPanel>
                     </Expander.Header>
 
                     <StackPanel Orientation="Vertical">
-                        <Slider
-                            Margin="5"
-                            x:Name="Slider_LuminosityOpacity"
-                            Minimum="0"
-                            Maximum="1"
-                            StepFrequency="0.01"
-                            ValueChanged="Slider_LuminosityOpacity_ValueChanged"
-                            LostFocus="Slider_LuminosityOpacity_LostFocus"
-                            ></Slider>
-                    </StackPanel>
 
+                        <controls:SettingsCard  x:Name="SettingsCard_Language">
+                            <!-- 这里换成你查到的编码 -->
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xf2b7;" FontFamily="Segoe Fluent Icons"/>
+                            </controls:SettingsCard.HeaderIcon>
+
+                            <ToggleSwitch 
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Stretch" 
+                                x:Name="ToggleSwitch_Chinese"
+                                Toggled="ToggleSwitch_Chinese_Toggled"
+                                />
+
+
+                        </controls:SettingsCard>
+
+
+                        <controls:SettingsCard  x:Name="SettingsCard_Theme">
+                            <!-- 这里换成你查到的编码 -->
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xe790;" FontFamily="Segoe Fluent Icons"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <ToggleSwitch 
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Stretch" 
+                                x:Name="ToggleSwitch_Theme"
+                                Toggled="ToggleSwitch_Theme_Toggled"
+                                />
+
+
+
+                        </controls:SettingsCard>
+
+                        <controls:SettingsCard  x:Name="SettingsCard_LuminosityOpacity">
+                            <!-- 这里换成你查到的编码 -->
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xf08c;" FontFamily="Segoe Fluent Icons"/>
+                            </controls:SettingsCard.HeaderIcon>
+
+                            <Slider
+                                Margin="5"
+                                x:Name="Slider_LuminosityOpacity"
+                                Minimum="0"
+                                Maximum="1"
+                                StepFrequency="0.01"
+                                ValueChanged="Slider_LuminosityOpacity_ValueChanged"
+                                LostFocus="Slider_LuminosityOpacity_LostFocus"
+                                ></Slider>
+
+                        </controls:SettingsCard>
+
+                    </StackPanel>
+                    
+                    
                 </Expander>
-                
-                
+
+                <Expander
+                    HorizontalContentAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    IsExpanded="True">
+                    <Expander.Header>
+                        <StackPanel Margin="10">
+                            <TextBlock 
+                                x:Name="TextBlock_BehaviourSettings"
+                                FontSize="14" 
+                                FontWeight="Bold" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical">
+
+                        <!-- Texture Conversion Format -->
+                        <controls:SettingsCard x:Name="SettingsCard_TextureConversionFormat">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE8D7;" FontFamily="Segoe Fluent Icons"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <ComboBox x:Name="ComboBox_TextureConversionFormat" SelectionChanged="ComboBox_TextureConversionFormat_SelectionChanged">
+                                <ComboBoxItem x:Name="ComboBoxItem_png" Content="png" />
+                                <ComboBoxItem x:Name="ComboBoxItem_jpg" Content="jpg" />
+                                <ComboBoxItem x:Name="ComboBoxItem_tga" Content="tga" />
+                            </ComboBox>
+                        </controls:SettingsCard>
+
+                        <!-- Post Reverse Action -->
+                        <controls:SettingsCard x:Name="SettingsCard_PostReverseAction">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE8B8;" FontFamily="Segoe Fluent Icons"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <ComboBox x:Name="ComboBox_PostReverseAction" SelectionChanged="ComboBox_PostReverseAction_SelectionChanged">
+                                <ComboBoxItem x:Name="ComboBoxItem_OpenFolder" Content="OpenFolder" />
+                                <ComboBoxItem x:Name="ComboBoxItem_ShowDialog" Content="ShowDialog" />
+                            </ComboBox>
+                        </controls:SettingsCard>
+
+                        <!-- Convert Original Textures -->
+                        <controls:SettingsCard x:Name="SettingsCard_ConvertOriginalTextures">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE7C3;" FontFamily="Segoe Fluent Icons"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <ToggleSwitch x:Name="ToggleSwitch_ConvertOriginalTextures" Toggled="ToggleSwitch_ConvertOriginalTextures_Toggled" OnContent="Enable" OffContent="Disable" />
+                        </controls:SettingsCard>
+
+                        <!-- Convert Textures to Output Folder -->
+                        <controls:SettingsCard x:Name="SettingsCard_ConvertTexturesToOutputFolder">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE8DA;" FontFamily="Segoe Fluent Icons"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <ToggleSwitch x:Name="ToggleSwitch_ConvertTexturesToOutputFolder" Toggled="ToggleSwitch_ConvertTexturesToOutputFolder_Toggled" OnContent="Enable" OffContent="Disable" />
+                        </controls:SettingsCard>
+
+                    </StackPanel>
+                </Expander>
+
 
             </StackPanel>
         </ScrollViewer>

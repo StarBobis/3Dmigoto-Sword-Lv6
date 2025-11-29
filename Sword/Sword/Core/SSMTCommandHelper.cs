@@ -25,22 +25,22 @@ namespace SSMT
         {
             //把当前运行的命令保存到RunInput.json
             JObject runInputJson = new JObject();
-            if (File.Exists(GlobalConfig.Path_RunInputJson))
+            if (File.Exists(PathManager.Path_RunInputJson))
             {
-                string json = File.ReadAllText(GlobalConfig.Path_RunInputJson); // 读取文件内容
+                string json = File.ReadAllText(PathManager.Path_RunInputJson); // 读取文件内容
                 runInputJson = JObject.Parse(json);
 
             }
             runInputJson["RunCommand"] = arguments;
             string runInputJsonStr = runInputJson.ToString(Formatting.Indented);
-            File.WriteAllText(GlobalConfig.Path_RunInputJson, runInputJsonStr);
+            File.WriteAllText(PathManager.Path_RunInputJson, runInputJsonStr);
         }
 
         public static void InitializeRunResultJson()
         {
             JObject jsonObject = new JObject();
             jsonObject["result"] = "Unknown Error!";
-            File.WriteAllText(GlobalConfig.Path_RunResultJson, jsonObject.ToString());
+            File.WriteAllText(PathManager.Path_RunResultJson, jsonObject.ToString());
         }
 
 
@@ -57,7 +57,7 @@ namespace SSMT
             }
             else
             {
-                process.StartInfo.FileName = Path.Combine(GlobalConfig.Path_AssetsFolder, targetExe);
+                process.StartInfo.FileName = Path.Combine(PathManager.Path_AssetsFolder, targetExe);
             }
             //运行前必须检查路径
             if (!File.Exists(process.StartInfo.FileName))
@@ -70,7 +70,7 @@ namespace SSMT
             //MessageBox.Show("当前运行参数： " + arguments);
 
             //运行目录必须是调用的文件所在的目录，不然的话就会在当前SSMT.exe下面运行，就会导致很多东西错误，比如逆向的日志无法显示。
-            process.StartInfo.WorkingDirectory = GlobalConfig.Path_AssetsFolder; // <-- 新增
+            process.StartInfo.WorkingDirectory = PathManager.Path_AssetsFolder; // <-- 新增
 
             // 配置进程启动信息
             process.StartInfo.UseShellExecute = ShellExecute;  // 不使用操作系统的shell启动程序
@@ -83,7 +83,7 @@ namespace SSMT
 
             try
             {
-                string runResultJson = File.ReadAllText(GlobalConfig.Path_RunResultJson);
+                string runResultJson = File.ReadAllText(PathManager.Path_RunResultJson);
                 JObject resultJsonObject = JObject.Parse(runResultJson);
                 string runResult = (string)resultJsonObject["result"];
                 if (runResult != "success")

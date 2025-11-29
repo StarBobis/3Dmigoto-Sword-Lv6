@@ -29,7 +29,7 @@ namespace SSMT
 
         public static bool ExistsPluginReverse()
         {
-            if (File.Exists(GlobalConfig.Path_SwordLv5Exe))
+            if (File.Exists(PathManager.Path_SwordLv5Exe))
             {
                 return true;
             }
@@ -41,7 +41,7 @@ namespace SSMT
 
         public static bool ExistsPluginEncryption()
         {
-            if (File.Exists(GlobalConfig.Path_EncryptorExe))
+            if (File.Exists(PathManager.Path_EncryptorExe))
             {
                 return true;
             }
@@ -53,7 +53,7 @@ namespace SSMT
 
         public static bool ExistsPluginProtect()
         {
-            if (File.Exists(GlobalConfig.Path_ProtectExe))
+            if (File.Exists(PathManager.Path_ProtectExe))
             {
                 return true;
             }

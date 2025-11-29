@@ -141,10 +141,9 @@ namespace SSMT
             this.D3D11ElementList = elements;
             this.Initialize();
         }
-
-
         
     }
+
 
     public class D3D11GameTypeWrapper
     {
