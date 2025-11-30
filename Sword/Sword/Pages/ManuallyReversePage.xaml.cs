@@ -525,7 +525,7 @@ namespace Sword
                 GlobalConfig.ReverseOutputFolder = ModReverseOutputFolderPath;
                 GlobalConfig.SaveConfig();
 
-                if (CheckBox_AutoOpenFolderAfterReverse.IsChecked == true)
+                if (GlobalConfig.PostReverseAction == 0)
                 {
                     SSMTCommandHelper.ShellOpenFolder(ModReverseOutputFolderPath);
                 }

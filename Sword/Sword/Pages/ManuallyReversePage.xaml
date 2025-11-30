@@ -77,26 +77,6 @@
                 Click="Button_ManuallyReverseModel_Click"
                 />
 
-                <MenuFlyoutSeparator Margin="5"></MenuFlyoutSeparator>
-
-                <CheckBox
-                IsChecked="True"
-                Margin="5"
-                x:Name="CheckBox_AutoConvertTexturesRecursively"
-                />
-
-                <CheckBox
-                IsChecked="True"
-                Margin="5"
-                x:Name="CheckBox_AutoOpenFolderAfterReverse"
-                />
-
-                <CheckBox
-                IsChecked="True"
-                Margin="5"
-                x:Name="CheckBox_AutoConvertTexturesRecursivelyInOriginalModFolder"
-                />
-
             </StackPanel>
 
         </ScrollViewer>
@@ -307,6 +287,7 @@
 
 
                 <Expander
+                    Visibility="Collapsed"
                 HorizontalContentAlignment="Stretch"
                 HorizontalAlignment="Stretch"
                 IsExpanded="True">

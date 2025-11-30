@@ -51,16 +51,7 @@ namespace Sword
                 ComboBox_GameTypeName.Header = "数据类型文件夹";
                 Button_ClearAllList.Content = "清除当前列表";
                 Button_ExecuteManuallyReverse.Content = "执行手动逆向";
-
-                CheckBox_AutoConvertTexturesRecursively.Content = "转换贴图格式到逆向出的文件夹";
-                ToolTipService.SetToolTip(CheckBox_AutoConvertTexturesRecursively, "逆向后自动递归转换Mod的贴图格式，开启后每次只要运行一键逆向功能，就会自动递归转换ini所在文件夹及其所有子文件夹下的dds格式贴图到设置的全局贴图转换格式");
-
-                CheckBox_AutoOpenFolderAfterReverse.Content = "打开逆向好的文件夹";
-                ToolTipService.SetToolTip(CheckBox_AutoOpenFolderAfterReverse, "开启后每次只要运行一键逆向功能，就会自动打开逆向好的目标文件夹，不开启则逆向完成后只弹出逆向成功提示");
-
-                CheckBox_AutoConvertTexturesRecursivelyInOriginalModFolder.Content = "递归转换Mod原文件中的贴图格式";
-                ToolTipService.SetToolTip(CheckBox_AutoConvertTexturesRecursivelyInOriginalModFolder, "勾选后，逆向完成后自动把Mod文件夹里的所有.dds贴图，原地转换到旁边的ConvertedTextures文件夹中，方便使用");
-
+           
                 //主要内容
                 TextBlock_IndexBufferFileList.Text = "Index Buffer文件列表";
                 ToolTipService.SetToolTip(TextBlock_IndexBufferFileList, "单个DrawIB对应Mod文件中的IndexBuffer文件，后缀名一般为.buf或.ib，格式一般为DXGI_FORMAT_R32_UINT或DXGI_FORMAT_R16_UINT");
@@ -131,9 +122,6 @@ namespace Sword
                 Button_ClearAllList.Content = "Clear All List";
                 Button_ExecuteManuallyReverse.Content = "Execute Manually Reverse";
 
-                CheckBox_AutoConvertTexturesRecursively.Content = "Convert Textures To Reversed Folder";
-                CheckBox_AutoOpenFolderAfterReverse.Content = "Open Reversed Folder";
-                CheckBox_AutoConvertTexturesRecursivelyInOriginalModFolder.Content = "Convert Textures In Mod Folder";
 
 
                 //Main Content
