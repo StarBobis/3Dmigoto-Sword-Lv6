@@ -28,8 +28,8 @@ namespace SSMT_Core
         // New properties
         public static string TextureConversionFormat { get; set; } = "jpg";
         public static int PostReverseAction { get; set; } = 0; // Changed to int to store SelectedIndex
-        public static bool ConvertOriginalTextures { get; set; } = false;
-        public static bool ConvertTexturesToOutputFolder { get; set; } = false;
+        public static bool ConvertOriginalTextures { get; set; } = true;
+        public static bool ConvertTexturesToOutputFolder { get; set; } = true;
 
         public static string AutoReverseGameName { get; set; } = "GI";
         public static string WWMIReverseStyle { get; set; } = "WWMI";
