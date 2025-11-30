@@ -212,10 +212,7 @@ namespace Sword
                 SettingsCard_TextureConversionFormat.Header = "贴图转换格式";
                 SettingsCard_TextureConversionFormat.Description = "选择当前逆向后的贴图转换格式";
 
-                ComboBoxItem_png.Content = "png";
-                ComboBoxItem_jpg.Content = "jpg";
-                ComboBoxItem_tga.Content = "bmp";
-
+            
                 SettingsCard_PostReverseAction.Header = "逆向完成后操作";
                 SettingsCard_PostReverseAction.Description = "选择逆向完成后的操作";
 
@@ -269,10 +266,6 @@ namespace Sword
 
                 SettingsCard_TextureConversionFormat.Header = "Texture Conversion Format";
                 SettingsCard_TextureConversionFormat.Description = "Select the texture conversion format";
-
-                ComboBoxItem_png.Content = "png";
-                ComboBoxItem_jpg.Content = "jpg";
-                ComboBoxItem_tga.Content = "bmp";
 
                 SettingsCard_PostReverseAction.Header = "Post Reverse Action";
                 SettingsCard_PostReverseAction.Description = "Select the action after reverse operation";

@@ -124,8 +124,8 @@
                                 <FontIcon Glyph="&#xE8D7;" FontFamily="Segoe Fluent Icons"/>
                             </controls:SettingsCard.HeaderIcon>
                             <ComboBox x:Name="ComboBox_TextureConversionFormat" SelectionChanged="ComboBox_TextureConversionFormat_SelectionChanged">
-                                <ComboBoxItem x:Name="ComboBoxItem_png" Content="png" />
                                 <ComboBoxItem x:Name="ComboBoxItem_jpg" Content="jpg" />
+                                <ComboBoxItem x:Name="ComboBoxItem_png" Content="png" />
                                 <ComboBoxItem x:Name="ComboBoxItem_tga" Content="tga" />
                             </ComboBox>
                         </controls:SettingsCard>
