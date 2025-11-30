@@ -31,6 +31,8 @@ namespace SSMT_Core
         public static bool ConvertOriginalTextures { get; set; } = false;
         public static bool ConvertTexturesToOutputFolder { get; set; } = false;
 
+        public static string AutoReverseGameName { get; set; } = "GI";
+        public static string WWMIReverseStyle { get; set; } = "WWMI";
 
 
         /// <summary>
@@ -89,6 +91,18 @@ namespace SSMT_Core
                     TextureConversionFormat = (string)SettingsJsonObject["TextureConversionFormat"];
                 }
 
+                //AutoReverseGameName
+                if (SettingsJsonObject.ContainsKey("AutoReverseGameName"))
+                {
+                    AutoReverseGameName = (string)SettingsJsonObject["AutoReverseGameName"];
+                }
+
+                //WWMIReverseStyle
+                if (SettingsJsonObject.ContainsKey("WWMIReverseStyle"))
+                {
+                    WWMIReverseStyle = (string)SettingsJsonObject["WWMIReverseStyle"];
+                }
+
                 // PostReverseAction
                 if (SettingsJsonObject.ContainsKey("PostReverseAction"))
                 {
@@ -127,6 +141,8 @@ namespace SSMT_Core
             SettingsJsonObject["Theme"] = Theme;
             SettingsJsonObject["Chinese"] = Chinese;
             SettingsJsonObject["ReverseOutputFolder"] = ReverseOutputFolder;
+            SettingsJsonObject["AutoReverseGameName"] = AutoReverseGameName;
+            SettingsJsonObject["WWMIReverseStyle"] = WWMIReverseStyle;
 
             // New properties
             SettingsJsonObject["TextureConversionFormat"] = TextureConversionFormat;

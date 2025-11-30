@@ -35,17 +35,19 @@
                     Icon="Home" 
                     Content="主页" 
                     Tag="HomePage" />
-                <NavigationViewItem 
-                    Visibility="Collapsed"
-                    x:Name="NavigationViewItem_AutoReversePage" 
-                    Icon="Permissions" 
-                    Content="自动逆向" 
-                    Tag="AutoReversePage" />
+              
                 <NavigationViewItem 
                     x:Name="NavigationViewItem_ManuallyReversePage" 
                     Icon="TouchPointer" 
                     Content="手动逆向" 
                     Tag="ManuallyReversePage" />
+
+                <NavigationViewItem 
+                    x:Name="NavigationViewItem_AutoReversePage" 
+                    Icon="Permissions" 
+                    Content="自动逆向" 
+                    Tag="AutoReversePage" />
+                
                 <NavigationViewItem 
                     x:Name="NavigationViewItem_ProtectPage" 
                     Icon="ProtectedDocument" 

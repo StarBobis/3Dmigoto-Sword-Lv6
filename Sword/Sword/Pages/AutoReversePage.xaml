@@ -7,9 +7,88 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     Background="Transparent">
 
-    <Grid>
-        
-    </Grid>
+    <ScrollViewer Margin="5">
+
+        <StackPanel Orientation="Vertical">
+
+            <Expander
+                HorizontalContentAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                IsExpanded="True">
+                <Expander.Header>
+                    <StackPanel Margin="10">
+                        <TextBlock 
+                        x:Name="TextBlock_AutoReverse"
+                        FontSize="14" 
+                        FontWeight="Bold"/>
+                    </StackPanel>
+                </Expander.Header>
+                
+                <StackPanel Orientation="Vertical">
+
+                    <StackPanel Orientation="Vertical" Margin="5">
+                        <controls:SettingsCard x:Name="SettingsCard_GameName">
+                            <!-- 这里换成你查到的编码 -->
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE745;" FontFamily="Segoe Fluent Icons"/>
+                            </controls:SettingsCard.HeaderIcon>
+
+                            <ComboBox 
+                                SelectionChanged="ComboBox_GameName_SelectionChanged"
+                                Margin="5"
+                                x:Name="ComboBox_GameName">
+                            </ComboBox>
+
+
+                        </controls:SettingsCard>
+
+                        <controls:SettingsCard x:Name="SettingsCard_WWMIReverseStyle">
+                            <!-- 这里换成你查到的编码 -->
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE745;" FontFamily="Segoe Fluent Icons"/>
+                            </controls:SettingsCard.HeaderIcon>
+
+                            <ComboBox
+                                SelectionChanged="ComboBox_WWMIReverseStyle_SelectionChanged"
+                                Margin="5"
+                                x:Name="ComboBox_WWMIReverseStyle"
+                                >
+                            </ComboBox>
+                        </controls:SettingsCard>
+
+                    </StackPanel>
+
+                    
+
+                    <Button
+                        Margin="5"
+                        x:Name="Button_ReverseSingleIni"
+                        Click="Menu_Reverse_SingleIni_Click"
+                        ></Button>
+                    <Button
+                        Margin="5"
+                        x:Name="Button_ReverseBufferBasedToggleIni"
+                        Click="Menu_Reverse_ToggleIni_Click"
+                        ></Button>
+                    <Button
+                        Margin="5"
+                        x:Name="Button_ReverseDrawIndexedBasedToggleIni"
+                        Click="Menu_Reverse_DrawIndexedIni_Click"
+                        ></Button>
+
+                </StackPanel>
+            </Expander>
+
+
+        </StackPanel>
+
+
+
+
+
+
+    </ScrollViewer>
 </Page>

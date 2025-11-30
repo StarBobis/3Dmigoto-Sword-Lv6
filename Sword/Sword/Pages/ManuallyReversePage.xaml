@@ -33,13 +33,7 @@
                 <MenuFlyoutItem x:Name="Menu_GameTypeFolder"  Click="Menu_GameTypeFolder_Click"/>
                 <MenuFlyoutItem x:Name="Menu_ReversedFolder" Click="Menu_ReversedFolder_Click"/>
             </MenuBarItem>
-
-            <MenuBarItem x:Name="Menu_Reverse">
-                <MenuFlyoutItem x:Name="Menu_Reverse_SingleIni"  Click="Menu_Reverse_SingleIni_Click"/>
-                <MenuFlyoutItem x:Name="Menu_Reverse_ToggleIni" Click="Menu_Reverse_ToggleIni_Click"/>
-                <MenuFlyoutItem x:Name="Menu_Reverse_DrawIndexedIni" Click="Menu_Reverse_DrawIndexedIni_Click"/>
-
-            </MenuBarItem>
+   
 
             <MenuBarItem x:Name="Menu_Textures">
                 <MenuFlyoutItem x:Name="Menu_Textures_ConvertJpg" Click="Menu_Textures_ConvertJpg_Click"/>
@@ -54,20 +48,15 @@
         </MenuBar>
 
         <ScrollViewer
-        Grid.Row="1"
-        Grid.Column="1"
-        >
+            Grid.Row="1"
+            Grid.Column="1"
+            >
             <StackPanel
             Margin="5"
             Orientation="Vertical"
             >
 
-                <ComboBox 
-                Margin="5"
-                x:Name="ComboBox_GameName" 
-                Width="200"  
-                SelectionChanged="ComboBox_GameName_SelectionChanged" >
-                </ComboBox>
+     
 
                 <ComboBox
                 x:Name="ComboBox_GameTypeName"
