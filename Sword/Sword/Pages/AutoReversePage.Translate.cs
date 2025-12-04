@@ -34,8 +34,8 @@ namespace Sword
                 SettingsCard_WWMIReverseStyle.Description = "选择WWMI则逆向出来的模型命名为WWMI-Tools风格，适合WWMI-Tools工作流，选择SSMT则逆向出来的模型命名为SSMT风格，适合使用SSMT + TheHerta3的工作流";
 
                 Button_ReverseSingleIni.Content = "一键逆向Mod的ini";
-                Button_ReverseBufferBasedToggleIni.Content = "一键逆向基于DrawIndexed的分支Mod的ini(常用)";
-                Button_ReverseDrawIndexedBasedToggleIni.Content = "一键逆向基于Buffer的分支Mod的ini(很少用)";
+                Button_ReverseBufferBasedToggleIni.Content = "一键逆向基于Buffer的分支Mod的ini(很少用)";
+                Button_ReverseDrawIndexedBasedToggleIni.Content = "一键逆向基于DrawIndexed的分支Mod的ini(常用)";
 
             }
             else
@@ -49,8 +49,8 @@ namespace Sword
                 SettingsCard_WWMIReverseStyle.Description = "Select WWMI to reverse the model naming in WWMI-Tools style, suitable for WWMI-Tools workflow. Select SSMT to reverse the model naming in SSMT style, suitable for SSMT + TheHerta3 workflow.";
 
                 Button_ReverseSingleIni.Content = "Reverse Single Mod's ini";
-                Button_ReverseBufferBasedToggleIni.Content = "Reverse DrawIndexed Based Toggle Mod's ini";
-                Button_ReverseDrawIndexedBasedToggleIni.Content = "Reverse Buffer Based Toggle Mod's ini";
+                Button_ReverseBufferBasedToggleIni.Content = "Reverse Buffer Based Toggle Mod's ini";
+                Button_ReverseDrawIndexedBasedToggleIni.Content = "Reverse DrawIndexed Based Toggle Mod's ini";
 
             }
         }
