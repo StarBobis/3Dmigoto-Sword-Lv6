@@ -11,7 +11,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI;
 using SSMT;
-using SSMT_Core;
+using Sword.Configs;
 
 namespace WinUI3Helper
 {

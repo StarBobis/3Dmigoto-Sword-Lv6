@@ -178,8 +178,13 @@ namespace SSMT
         public IndexBufferBufFile(string IndexBufferFilePath,string Format)
         {
             string FileName = Path.GetFileName(IndexBufferFilePath);
-            this.Index = FileName.Substring(0,6);
-            
+
+            LOG.Info(FileName);
+            if (FileName.Length >= 6)
+            {
+                this.Index = FileName.Substring(0, 6);
+            }
+
 
             string FormatLower = Format.ToLower();
 

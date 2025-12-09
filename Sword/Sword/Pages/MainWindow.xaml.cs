@@ -8,7 +8,6 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using SSMT;
-using SSMT_Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +19,7 @@ using Windows.Graphics;
 using Windows.Web.AtomPub;
 using WinUI3Helper;
 using WinRT;
+using Sword.Configs;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -196,9 +196,6 @@ namespace Sword
 
                 switch (pageTag)
                 {
-                    case "HomePage":
-                        pageType = typeof(HomePage);
-                        break;
                     case "AutoReversePage":
                         pageType = typeof(AutoReversePage);
                         break;
@@ -208,7 +205,6 @@ namespace Sword
                     case "ProtectPage":
                         pageType = typeof(ProtectPage);
                         break;
-
                 }
 
                 if (pageType != null && contentFrame.Content?.GetType() != pageType)

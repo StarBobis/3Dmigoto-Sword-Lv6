@@ -11,6 +11,7 @@ using Microsoft.UI.Xaml;
 using SSMT_Core;
 using WinUI3Helper;
 using Sword;
+using Sword.Configs;
 
 namespace SSMT
 {

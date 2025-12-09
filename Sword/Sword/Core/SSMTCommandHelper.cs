@@ -14,8 +14,8 @@ using Windows.Storage.Pickers;
 using Windows.System;
 using WinRT.Interop;
 using Microsoft.UI.Xaml;
-using SSMT_Core;
 using Sword;
+using Sword.Configs;
 
 namespace SSMT
 {

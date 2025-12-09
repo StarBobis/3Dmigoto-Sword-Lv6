@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
-using SSMT_Core;
+using Sword.Configs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

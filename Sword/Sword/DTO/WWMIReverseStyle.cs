@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sword
+namespace Sword.DTO
 {
     public class WWMIReverseStyle
     {

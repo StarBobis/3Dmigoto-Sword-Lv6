@@ -6,7 +6,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using SSMT;
-using SSMT_Core;
+using Sword.Configs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

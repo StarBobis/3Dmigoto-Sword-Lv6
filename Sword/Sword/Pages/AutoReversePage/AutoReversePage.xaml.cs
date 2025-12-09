@@ -8,6 +8,8 @@ using Microsoft.UI.Xaml.Navigation;
 using Newtonsoft.Json.Linq;
 using SSMT;
 using SSMT_Core;
+using Sword.Configs;
+using Sword.DTO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -167,7 +169,7 @@ namespace Sword
             {
                 if (!File.Exists(PathManager.Path_SwordLv5Exe))
                 {
-                    _ = SSMTMessageHelper.Show("您当前Plugins目录下的3Dmigoto-Sword-Lv5.exe不存在，请联系NicoMico获取后安装到Plugins目录下来使用。");
+                    _ = SSMTMessageHelper.Show("您当前Assets目录下的3Dmigoto-Sword-Lv5.exe不存在，请联系NicoMico获取后安装到Plugins目录下来使用。");
                     return;
                 }
                 LOG.Info("RunReverseIniCommand::Start");
@@ -237,7 +239,7 @@ namespace Sword
             {
                 if (!File.Exists(PathManager.Path_SwordLv5Exe))
                 {
-                    _ = SSMTMessageHelper.Show("您当前Plugins目录下的3Dmigoto-Sword-Lv5.exe不存在，请检查是否被杀软错误删除或关闭杀软后重新完整下载本软件使用。");
+                    _ = SSMTMessageHelper.Show("您当前Assets目录下的3Dmigoto-Sword-Lv5.exe不存在，请检查是否被杀软错误删除或关闭杀软后重新完整下载本软件使用。");
                     return;
                 }
 
@@ -297,7 +299,7 @@ namespace Sword
             {
                 if (!File.Exists(PathManager.Path_SwordLv5Exe))
                 {
-                    _ = SSMTMessageHelper.Show("您当前Plugins目录下的3Dmigoto-Sword-Lv5.exe不存在，请检查是否被杀软错误删除或关闭杀软后重新完整下载本软件使用。");
+                    _ = SSMTMessageHelper.Show("您当前Assets目录下的3Dmigoto-Sword-Lv5.exe不存在，请检查是否被杀软错误删除或关闭杀软后重新完整下载本软件使用。");
                     return;
                 }
 

@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 using System.Xml;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SSMT_Core;
 using Windows.Globalization;
 
-namespace SSMT_Core
+namespace Sword.Configs
 {
 
     public static class GlobalConfig

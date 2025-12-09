@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media.Imaging;
-using SSMT_Core;
+using Sword.Configs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

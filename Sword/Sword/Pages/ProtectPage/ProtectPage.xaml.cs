@@ -8,6 +8,7 @@ using Microsoft.UI.Xaml.Navigation;
 using Newtonsoft.Json.Linq;
 using SSMT;
 using SSMT_Core;
+using Sword.Configs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

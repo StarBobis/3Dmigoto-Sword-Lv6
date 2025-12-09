@@ -73,6 +73,10 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Pages\ProtectPage\" />
+	  <Folder Include="Pages\SettingsPage\" />
+	</ItemGroup>
 
 	<!--禁用空值检查，没必要那么严格，只是一个小工具，一切从简-->
 	<PropertyGroup>
