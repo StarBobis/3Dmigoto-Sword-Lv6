@@ -180,6 +180,7 @@ namespace Sword
                 {
                     return;
                 }
+
                 if (File.Exists(ModIniFilePath))
                 {
                     string ModFolderPath = Path.GetDirectoryName(ModIniFilePath);

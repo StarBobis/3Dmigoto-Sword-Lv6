@@ -288,9 +288,9 @@
 
                 <Expander
                     Visibility="Collapsed"
-                HorizontalContentAlignment="Stretch"
-                HorizontalAlignment="Stretch"
-                IsExpanded="True">
+                    HorizontalContentAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    IsExpanded="True">
                     <Expander.Header>
                         <StackPanel Margin="10">
                             <TextBlock 

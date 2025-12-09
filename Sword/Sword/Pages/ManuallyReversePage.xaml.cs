@@ -260,9 +260,8 @@ namespace Sword
                 }
                 ManuallyReversePageConfigJOBJ["ShapeKeyPositionBufferItemList"] = ShapeKeyPositionBufferItemListJarray;
 
-
-                string ManuallyReversePageConfigFilePath = Path.Combine(PathManager.Path_ConfigsFolder, "ManuallyReversePageConfig.json");
-                DBMTJsonUtils.SaveJObjectToFile(ManuallyReversePageConfigJOBJ, ManuallyReversePageConfigFilePath);
+              
+                DBMTJsonUtils.SaveJObjectToFile(ManuallyReversePageConfigJOBJ, PathManager.Path_ManuallyReversePageConfig);
 
                 _ = SSMTMessageHelper.Show("保存成功", "Save Success");
             }
@@ -277,15 +276,15 @@ namespace Sword
 
             try
             {
-                string ManuallyReversePageConfigFilePath = Path.Combine(PathManager.Path_ConfigsFolder, "ManuallyReversePageConfig.json");
+                
 
-                if (!File.Exists(ManuallyReversePageConfigFilePath))
+                if (!File.Exists(PathManager.Path_ManuallyReversePageConfig))
                 {
                     _ = SSMTMessageHelper.Show("当前暂无任何保存过的配置文件");
                     return;
                 }
 
-                JObject ManuallyReversePageConfigJOBJ = DBMTJsonUtils.ReadJObjectFromFile(ManuallyReversePageConfigFilePath);
+                JObject ManuallyReversePageConfigJOBJ = DBMTJsonUtils.ReadJObjectFromFile(PathManager.Path_ManuallyReversePageConfig);
 
                 JArray IndexBufferItemListJarray = (JArray)ManuallyReversePageConfigJOBJ["IndexBufferItemList"];
                 JArray CategoryBufferItemListJarray = (JArray)ManuallyReversePageConfigJOBJ["CategoryBufferItemList"];

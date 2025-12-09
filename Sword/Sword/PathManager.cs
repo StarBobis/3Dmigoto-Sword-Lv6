@@ -20,9 +20,7 @@ namespace SSMT_Core
                 return Path.Combine(PathManager.Path_AssetsFolder, Name_Texconv);
             }
         }
-
-
-
+        
         public static string Path_AssetsFolder
         {
             get { return Path.Combine(PathManager.Path_BaseFolder, "Assets\\"); }
@@ -76,9 +74,6 @@ namespace SSMT_Core
             }
         }
 
-
-
-
         //// 配置文件路径
         public static string Path_MainConfig
         {
@@ -90,9 +85,6 @@ namespace SSMT_Core
             get { return Path.Combine(Path_AppDataLocal, PathManager.Name_GlobalConfigFileName); }
         }
 
-
-
-
         public static string Path_AppDataLocal
         {
             get
@@ -102,11 +94,22 @@ namespace SSMT_Core
             }
         }
 
+        public static string Path_SwordGlobalConfigsFolder
+        {
+            get { return Path.Combine(PathManager.Path_AppDataLocal, "SwordGlobalConfigs\\"); }
+        }
+
+        //Path.Combine(PathManager.Path_ConfigsFolder, "ManuallyReversePageConfig.json");
+
+        public static string Path_ManuallyReversePageConfig 
+        {
+            get { return Path.Combine(PathManager.Path_SwordGlobalConfigsFolder, "ManuallyReversePageConfig.json"); }
+        }
+
         public static string Path_ConfigsFolder
         {
             get { return Path.Combine(PathManager.Path_BaseFolder, "Configs\\"); }
         }
-
 
 
         public static string Path_ModManageConfig

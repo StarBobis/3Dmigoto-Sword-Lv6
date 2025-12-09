@@ -39,6 +39,12 @@ namespace Sword
         {
             InitializeComponent();
 
+            //确保全局配置文件夹存在
+            if (!Directory.Exists(PathManager.Path_SwordGlobalConfigsFolder))
+            {
+                Directory.CreateDirectory(PathManager.Path_SwordGlobalConfigsFolder);
+            }
+
             CurrentWindow = this;
 
             this.Title = "3Dmigoto-Swrod-Lv6 " + GlobalConfig.SwordVersion;
