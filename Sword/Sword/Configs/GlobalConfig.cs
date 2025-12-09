@@ -15,7 +15,7 @@ namespace Sword.Configs
 
     public static class GlobalConfig
     {
-        public static string SwordVersion { get; set; } = "V1.1.3";
+        public static string SwordVersion { get; set; } = "V1.1.4";
 
         public static string ReverseOutputFolder { get; set; } = "";
         public static bool Theme { get; set; } = true;
